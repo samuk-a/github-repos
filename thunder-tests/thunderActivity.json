@@ -1,0 +1,56 @@
+[
+  {
+    "_id": "dd8d9f62-64c2-49b8-ad2f-efbd4689d10e",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://127.0.0.1:3333/search",
+    "url": "http://127.0.0.1:3333/search",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-23T18:43:35.601Z",
+    "modified": "2023-02-23T18:43:35.601Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "10b9d15e-edb9-4e8c-8f23-00fc8c1726ab",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://127.0.0.1:3333/search?user=asdadadadasdaddfasdfafasdfa",
+    "url": "http://127.0.0.1:3333/search?user=asdadadadasdaddfasdfafasdfa",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-23T18:43:45.404Z",
+    "modified": "2023-02-23T18:43:45.404Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "user",
+        "value": "asdadadadasdaddfasdfafasdfa",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "cb2e432c-08d0-4e4e-97cc-384655328a95",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://127.0.0.1:3333/search?user=samuk-a",
+    "url": "http://127.0.0.1:3333/search?user=samuk-a",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-23T18:47:54.214Z",
+    "modified": "2023-02-23T18:47:54.214Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "user",
+        "value": "samuk-a",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  }
+]
