@@ -18,6 +18,7 @@ jobs:
       - node/install-packages:
           pkg-manager: npm
           cache-path: ~/project/node_modules
+          override-ci-command: npm install --no-progress --non-interactive --silent --pure-lockfile
       - run:
           name: Run test suite
           command: npm test --ci
