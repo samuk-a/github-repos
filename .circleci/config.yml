@@ -1,17 +1,69 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@4.1
+  node: circleci/node@5.1.0
   heroku: circleci/heroku@1.2
 
-workflows:
-  sample:
-    jobs:
-      - node/test
+jobs:
+  test:
+    executor:
+      name: node/default
+      tag: '18.14'
+    working_directory: ~/project
+    steps:
+      - checkout
+      - run:
+          name: Update NPM version
+          command: sudo npm install -g npm@latest --force
+      - node/install-packages:
+          pkg-manager: npm
+          cache-path: ~/project/node_modules
+      - run:
+          name: Run test suite
+          command: npm test --ci
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+  build:
+    executor:
+      name: node/default
+      tag: '18.14'
+    working_directory: ~/project
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Build output
+          command: npm run compile
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - dist
+  deploy:
+    executor:
+      name: heroku/default
+    working_directory: ~/project
+    steps:
+      - attach_workspace:
+          at: ~/project
       - heroku/deploy-via-git:
           force: true
-          requires:
-            - node/test
           filters:
             branches:
               only: master
+
+workflows:
+  test-build-deploy:
+    jobs:
+      - test:
+          filters:
+            branches:
+              only: master
+      - build:
+          requires:
+            - test
+      - heroku/deploy-via-git:
+          requires:
+            - build
+          

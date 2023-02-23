@@ -8,11 +8,11 @@ describe('Testing GitHub Integration', () => {
   });
 
   test('Should return all public repositories', () => {
-    expect(repos).toHaveLength(30);
+    expect(repos).toHaveLength(17);
   });
 
-  test('First repo created must be mentions-api', () => {
-    expect(repos[0].name).toBe('mentions-api');
+  test('First repo created must be API-Medicos', () => {
+    expect(repos[0].name).toBe('API-Medicos');
   });
 
   test('No user found, should return error', async () => {

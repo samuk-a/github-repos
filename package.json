@@ -22,6 +22,7 @@
   "bugs": {
     "url": "https://github.com/samuk-a/github-repos/issues"
   },
+  "engines": {"node": "18.14.1"},
   "homepage": "https://github.com/samuk-a/github-repos#readme",
   "dependencies": {
     "@octokit/rest": "^19.0.7",
