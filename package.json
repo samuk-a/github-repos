@@ -11,7 +11,7 @@
     "compile": "tsc",
     "fix": "gts fix",
     "dev": "nodemon src/server.ts",
-    "prepare": "npm.cmd run compile"
+    "prepare": "npm run compile"
   },
   "repository": {
     "type": "git",
