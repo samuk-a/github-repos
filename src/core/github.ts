@@ -1,6 +1,7 @@
 import { Octokit } from "@octokit/rest";
 
 import { Repository } from "../schemas/repository";
+import RepositoryModel, { IRepository } from "../models/repo";
 
 class GitHub {
   private octokit = new Octokit({
@@ -15,10 +16,15 @@ class GitHub {
         name: repo.name,
         url: repo.html_url,
         description: repo.description!,
-        language: repo.language
+        language: repo.language || undefined
       };
       return repository;
     });
+  }
+
+  public async saveRepo(repo: IRepository): Promise<IRepository> {
+    const newRepo = new RepositoryModel(repo);
+    return await newRepo.save();
   }
 }
 
